@@ -2,6 +2,22 @@ import AsyncStorage from '@react-native-async-storage/async-storage'; //using As
 
 const USER_KEY = '@user_credentials';
 
+
+// this will save newly registered user credentials
+export const registerUserInStorage = async (userData: {username: string, email: string, password: string}) => {
+    try {
+        //we convert the JavaScript user object into a JSON string (AsyncStorage can only store raw string data)
+        const jsonValue = JSON.stringify(userData);
+
+        await AsyncStorage.setItem(USER_KEY, jsonValue);//save the stringified data under our storage key asynchronously
+
+        return true;//indicates successful registration
+    } catch (error) {
+        console.error('Error saving user data:', error);
+        return false;
+    }
+};
+
 // this will retrieve saved user credentials from AsyncStorage
 export const getUserFromStorage = async () => {
     try {

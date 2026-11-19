@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
+import {useRouter} from 'expo-router'
+import {registerUserInStorage} from '../../utils/authStorage'
 
 export default function RegisterScreen() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
         //basic check that ensures no field is left blank
         if (!username || !email || !password) {
-            console.log('Please fill in all fields')
+            alert('Please fill in all required fields')
             return;
         }
 
-        console.log('Registering user:', { username, email, password })
+        //saving credentials to AsyncStorage
+        const success = await registerUserInStorage({username, email, password});
+
+        if(success){
+
+        }
     };
 
     return (
