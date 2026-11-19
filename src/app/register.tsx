@@ -61,5 +61,23 @@ const styles = StyleSheet.create({
         padding: 14,
         borderRadius: 8,
         marginBottom: 16
+    },
+    button: {
+        backgroundColor: '#306a68',
+        padding: 16,
+        borderRadius: 8,
+        alignItems: 'center',
+        marginTop: 8
+    },
+    buttonText:{
+        color: '#ffffff',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+    linkText:{
+        marginTop: 20,
+        textAlign: 'center',
+        color: '#4caf50',
+        fontSize: 14
     }
-})
+});
