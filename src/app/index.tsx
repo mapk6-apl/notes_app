@@ -23,6 +23,13 @@ export default function LoginScreen() {
       alert('User account not found! Please sign up first.')
       return;
     }
+
+    //here we validate the credentials against the saved data
+    if(savedUser.email === email && savedUser.password === password){
+      alert('Login successful for:', savedUser.username);
+    }else{
+      alert('Invalid email or password')
+    }
   };
 
   return (
