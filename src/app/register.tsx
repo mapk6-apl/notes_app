@@ -20,7 +20,9 @@ export default function RegisterScreen() {
         const success = await registerUserInStorage({username, email, password});
 
         if(success){
-
+            alert('Account created successfully!')
+        }else{
+            alert('Failed to register user. Please try again.')
         }
     };
 

@@ -1,15 +1,28 @@
 import { Text, View, StyleSheet, TextInput, Pressable } from "react-native";
 import React, { useState } from 'react'
 import { Link } from 'expo-router'; //Link allows declarative navigation between file routes in Expo Route
+import {getUserFromStorage} from '../../utils/authStorage'
+import { useRouter } from 'expo-router';
 
 export default function LoginScreen() {
   //we declare component state to track user inputs
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const router = useRouter();
+
   //this function is triggered when a user taps 'Sign In'
-  const handleLogin = () => {
-    console.log('')
+  const handleLogin = async() => {
+    alert('Please enter your email and password');
+    return;
+
+    //we retrieve saved user from AsyncStorage
+    const savedUser = await getUserFromStorage();
+
+    if(!savedUser){
+      alert('User account not found! Please sign up first.')
+      return;
+    }
   };
 
   return (
