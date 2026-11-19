@@ -17,9 +17,9 @@ export default function LoginScreen() {
       <Text style={styles.title}>Notes App</Text>
 
       {/* email address input field */}
-      <TextInput placeholder='Email Address' value={email} onChangeText={setEmail} style={styles.input} keyboardType='email-address' autoCapitalize='none' />
+      <TextInput placeholder='Email Address' placeholderTextColor='#7a6f6f' value={email} onChangeText={setEmail} style={styles.input} keyboardType='email-address' autoCapitalize='none' />
       {/* password input field */}
-      <TextInput placeholder='Password' value={password} onChangeText={setPassword} style={styles.input} secureTextEntry />
+      <TextInput placeholder='Password' placeholderTextColor='#7a6f6f' value={password} onChangeText={setPassword} style={styles.input} secureTextEntry />
 
       {/* Sign In button */}
       <Pressable style={styles.button} onPress={handleLogin}>
@@ -35,49 +35,51 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    padding: 24,
     justifyContent: "center",
-    backgroundColor: '#996666'
+    backgroundColor: '#faf7f4'
   },
   title: {
     fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 24,
     textAlign: 'center',
-    color: '#ffffff'
+    color: '#2d2727'
   },
   input: {
-    backgroundColor: '#faf7f4',
-    color: '#393333',
-    borderWidth: 2, //thickness of the input textbox border
+    backgroundColor: '#ffffff',
+    color: '#2d2727',
+    borderWidth: 1.5, //thickness of the input textbox border
     padding: 14,
-    borderRadius: 8,
+    borderRadius: 10,
     marginBottom: 16,
     fontSize: 16,
-    borderColor: '#faf7f4'
+    borderColor: '#c8bcb4'
   },
   button: {
-    backgroundColor: '#393333',
+    backgroundColor: '#8b5e5e',
     padding: 16,
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 8,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2
+    shadowColor: '#8b5e5e',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    elevation: 3
   },
   buttonText: {
     fontWeight: 'bold',
     fontSize: 16,
     color: '#faf7f4',
-    
+
   },
-  linkText:{
+  linkText: {
     marginTop: 20,
     textAlign: 'center',
     fontSize: 14,
-    color: '#ffffff'
+    color: '#8b5e5e',
+    fontWeight: '600',
+    textDecorationLine: 'underline'
   }
 });
