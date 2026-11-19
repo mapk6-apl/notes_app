@@ -35,7 +35,31 @@ export default function RegisterScreen() {
 
             {/* navigation Link to return back to Login screen */}
             <Link href='/' style={styles.linkText}>Already have an account? Sign In</Link>
-
         </View>
-    )
+    );
 }
+
+const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        padding: 24,
+        justifyContent: 'center',
+        backgroundColor: '#010709'
+    },
+    title: {
+        fontSize: 26,
+        fontWeight: 'bold',
+        color: '#ffffff',
+        marginBottom: 24,
+        textAlign: 'center'
+    },
+    input:{
+        borderWidth: 1,
+        borderColor: '#306a68',
+        backgroundColor: '#121e24',
+        color: '#ffffff',
+        padding: 14,
+        borderRadius: 8,
+        marginBottom: 16
+    }
+})
