@@ -1,4 +1,9 @@
 import { Text, View, StyleSheet } from "react-native";
+import React, {useState} from 'react'
+import {Link} from 'expo-router'; //Link allows declarative navigation between file routes in Expo Route
+
+
+
 
 export default function Index() {
   return (
