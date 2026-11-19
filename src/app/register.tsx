@@ -22,7 +22,10 @@ export default function RegisterScreen(){
             <Text style={styles.title}>Create Account</Text>
 
             {/* username input field */}
-            <TextInput placeholder='Username' value={username} onChangeText={setUsername} style={styles.input} autoCapitalize='none'
+            <TextInput placeholder='Username' value={username} onChangeText={setUsername} style={styles.input} autoCapitalize='none'/>
+            {/* email address input field */}
+            <TextInput placeholder='Email Address' value={email} onChangeText={setEmail} style={styles.input} keyboardType='email-address' autoCapitalize='none' />
+                  
         </View>
     )
 }
