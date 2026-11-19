@@ -47,21 +47,32 @@ const styles = StyleSheet.create({
     color: '#ffffff'
   },
   input: {
+    backgroundColor: '#faf7f4',
+    color: '#393333',
     borderWidth: 2, //thickness of the input textbox border
     padding: 14,
     borderRadius: 8,
     marginBottom: 16,
+    fontSize: 16,
+    borderColor: '#faf7f4'
   },
   button: {
-    backgroundColor: '#faf7f4',
+    backgroundColor: '#393333',
     padding: 16,
-    borderRadius: 8,
+    borderRadius: 10,
     alignItems: 'center',
-    marginTop: 8
+    marginTop: 8,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2
   },
   buttonText: {
     fontWeight: 'bold',
-    fontSize: 16
+    fontSize: 16,
+    color: '#faf7f4',
+    
   },
   linkText:{
     marginTop: 20,
