@@ -27,6 +27,11 @@ export default function RegisterScreen() {
             <TextInput placeholder='Email Address' value={email} onChangeText={setEmail} style={styles.input} keyboardType='email-address' autoCapitalize='none' />
             {/* password input field */}
             <TextInput placeholder='Password' value={password} onChangeText={setPassword} style={styles.input} secureTextEntry />
+        
+        {/* Registration submit button */}
+        <Pressable style={styles.button} onPress={handleRegister}>
+                <Text style={styles.buttonText}>Register</Text>
+              </Pressable>
         </View>
     )
 }
