@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
-import {useRouter} from 'expo-router'
-import {registerUserInStorage} from '../../utils/authStorage'
+import { Link, useRouter } from 'expo-router';
+import {registerUserInStorage} from '../../utils/authStorage'; 
 
 export default function RegisterScreen() {
+    const router = useRouter();
+
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,11 +17,14 @@ export default function RegisterScreen() {
             return;
         }
 
+        const userData = {username, email, password};
+
         //saving credentials to AsyncStorage
-        const success = await registerUserInStorage({username, email, password});
+        const success = await registerUserInStorage(userData);
 
         if(success){
             alert('Account created successfully!')
+            router.replace('/notes')
         }else{
             alert('Failed to register user. Please try again.')
         }
