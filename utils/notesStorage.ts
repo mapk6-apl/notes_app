@@ -23,5 +23,25 @@ export const getNotesFromStorage = async(): Promise<Note[]> =>{
     }
 }
 
+//save a new note to AsyncStorage
+export const saveNoteToStorage = async (newNote: Omit<Note, 'id' | 'createdAt'>): Promise<boolean> => {
+    try {
+        const currentNotes = await getNotesFromStorage();
+
+        const noteToSave: Note = {
+            ...newNote,
+            // generates a unique id using timestamp
+            id: Date.now().toString(),  
+            createdAt: new Date().toISOString(),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        };
+
+        const updatedNotes = [noteToSave, ...currentNotes];
+        await AsyncStorage.setItem(NOTES_KEY, JSON.stringify(updatedNotes));
+        return true;
+    } catch (error) {
+        console.error('Error saving note:', error);
+        return false;
+    }
+};
 
 
