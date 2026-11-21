@@ -65,4 +65,11 @@ const categoryFilteredNotes = searchFilteredNotes.filter((note) => {
     if(selectedCategory === 'All')
     return true;
 return note.category.toLowerCase()=== selectedCategory.toLowerCase();
-})
+});
+
+//date sorting: ascending vs descending
+const sortedNotes = [...categoryFilteredNotes].sort((a, b) => {
+    const dateA = new Date(a.createdAt).getTime();
+    const dateB = new Date(b.createdAt).getTime();
+    return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
+});
