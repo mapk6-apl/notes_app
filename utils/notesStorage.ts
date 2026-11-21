@@ -70,4 +70,17 @@ export const updateNoteInStorage = async (
     }
 };
 
+//remove note by id 
+export const deleteNoteFromStorage = async (id: string): Promise<boolean> => {
+    try {
+        const currentNotes = await getNotesFromStorage();
+        const filteredNotes = currentNotes.filter((note) => note.id != id)
+        await AsyncStorage.setItem(NOTES_KEY, JSON.stringify(filteredNotes))
+        return true;
+    } catch (error) {
+        console.error('Error deleting note:', error)
+        return false;
+    }
+}
+
 
