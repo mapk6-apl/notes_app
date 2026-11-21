@@ -106,7 +106,26 @@ return(
                 <Text style={styles.emptyText}>No notes found.</Text>
             </View>
         }
-        
+        renderItem={({item}) => {
+            <View style={styles.noteCard}>
+                {/* header: category badge and actions */}
+                <View style={styles.cardHeader}>
+                    <View style={styles.badge}>
+                        <Text style={styles.badgeText}>{item.category}</Text>
+                    </View>
+                    <View style={styles.actionRow}>
+                        {/* edit button */}
+                        <Pressable onPress={() => router.push({
+                            pathname: '/(app)/edit-note',
+                            params: {id: item.id}
+                        })} style={styles.actionButton}>
+                            <Text style={styles.editButtonText}>Edit</Text>
+                        </Pressable>
+                        {/* delete button */}
+                    </View>
+                </View>
+            </View>
+        }}
 )
 };
 
