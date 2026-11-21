@@ -1,5 +1,5 @@
 import React, {useState, useCallback} from 'react';
-import {View, Text, TextInput, Pressable FlatList, StyleSheet, Alert} from 'react-native';
+import {View, Text, TextInput, Pressable , FlatList, StyleSheet, Alert} from 'react-native';
 import {useRouter, useFocusEffect, Link} from 'expo-router';
 import {getNotesFromStorage, deleteNoteFromStorage, Note} from '../../../utils/notesStorage';
 
@@ -45,8 +45,7 @@ export default function NotesScreen(){
                 }}
             ]
         )
-    }
-};
+    };
 
 //search matching: matches keywprds against title and content
 const searchFilteredNotes = notes.filter((note) => {
@@ -57,7 +56,7 @@ const searchFilteredNotes = notes.filter((note) => {
     const contentText = note.content.toLowerCase()
 
     //ensures every search word appears in either title or content
-    return words.every((word => titleText.includes(word) || contentText.includes(word));
+    return words.every((word => titleText.includes(word) || contentText.includes(word)));
 });
 
 //category filtering
@@ -72,4 +71,50 @@ const sortedNotes = [...categoryFilteredNotes].sort((a, b) => {
     const dateA = new Date(a.createdAt).getTime();
     const dateB = new Date(b.createdAt).getTime();
     return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
-});
+})
+
+return(
+    <View style={styles.container}>
+        {/* search input bar */}
+        <View style={styles.searchContainer}>
+            <TextInput placeholder='Search notes...' placeholderTextColor='7a6f6f' value={searchQuery} onChangeText={setSearchQuery} style={styles.searchInput}/>
+        </View>
+
+        {/* category selection tabs and sort toggle */}
+        <View style={styles.controlsRow}>
+            <View style={styles.categoryContainer}>
+                {CATEGORIES.map((category) => (
+                    <Pressable key={category} onPress={() => setSelectedCategory(category)} style={[styles.categoryChip, selectedCategory === category && styles.categoryChipActive]}>
+                        <Text style={[styles.categoryText, selectedCategory === category && styles.categoryTextActive]}>
+                            {category}
+                        </Text>
+                    </Pressable>
+                ))}
+            </View>
+
+            
+        </View>
+    </View>
+)
+};
+
+const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        backgroundColor: '#faf7f4',
+        paddingHorizontal: 16,
+        paddingTop: 16
+    },
+    searchContainer: {marginBottom: 12},
+    searchInput:{
+        backgroundColor: '#ffffff',
+        color: '#2d2727',
+        borderWidth: 1.5,
+        borderColor: '#e8e2dc',
+        paddingHorizontal: 14,
+        paddingVertical: 10,
+        borderRadius: 10,
+        fontSize: 15
+    }
+})
+
