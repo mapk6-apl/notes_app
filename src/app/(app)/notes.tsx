@@ -122,6 +122,9 @@ return(
                             <Text style={styles.editButtonText}>Edit</Text>
                         </Pressable>
                         {/* delete button */}
+                        <Pressable onPress={() => handleDelete(item.id, item.title)} style={styles.actionButton}>
+                            <Text style={styles.deleteButtonText}>Delete</Text>
+                        </Pressable>
                     </View>
                 </View>
             </View>
