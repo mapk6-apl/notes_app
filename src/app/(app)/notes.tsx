@@ -29,5 +29,21 @@ export default function NotesScreen(){
     const loadNotes = async () => {
         const storedNotes = await getNotesFromStorage();
         setNotes(storedNotes);
+    };
+
+    //delet note handler/function
+    const handleDelete = (id: string, title: string) => {
+        Alert.alert('Delete Note', `Are you sure you want to delete "${title || 'this note'}"?`,
+            [{text: 'Cancel', style: 'cancel'},
+                {text: 'Delete', style: 'destructive', onPress: async () => {
+                    const success = await deleteNoteFromStorage(id);
+                    if(success){
+                        loadNotes();
+                    }else{
+                        Alert.alert('Error', 'Could not delete the note.')
+                    }
+                }}
+            ]
+        )
     }
 }
