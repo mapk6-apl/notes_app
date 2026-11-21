@@ -44,4 +44,30 @@ export const saveNoteToStorage = async (newNote: Omit<Note, 'id' | 'createdAt'>)
     }
 };
 
+// here we edit an existing note in AsyncStorage
+export const updateNoteInStorage = async (
+    id: string,
+    updatedData: {title: string; content: string; category: string}
+): Promise<boolean> => {
+    try {
+        const currentNotes = await getNotesFromStorage();
+
+        const updatedNotes = currentNotes.map((note) => {
+            if(note.id === id){
+                return{
+                    ...note,
+                    ...updatedData,
+                    updatedAt: new Date().toISOString(), //timestamp for edit
+                };
+            }
+            return note;
+        });
+        await AsyncStorage.setItem(NOTES_KEY, JSON.stringify(updatedNotes));
+    return true;
+    } catch (error) {
+        console.error('Error updating note:', error);
+        return false;
+    }
+};
+
 
