@@ -15,4 +15,19 @@ export default function NotesScreen(){
     const [selectedCategory, setSelectedCategory] = useState('All'); //default state; liek on a dropdown
     const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
 
+    //we ensure that we load the notes eveytime the screen comes into focus (ex. after adding or editing a note)
+    useFocusEffect(
+        useCallback(
+          () => {
+            loadNotes();
+          },
+          [],
+        )
+        
+    );
+
+    const loadNotes = async () => {
+        const storedNotes = await getNotesFromStorage();
+        setNotes(storedNotes);
+    }
 }
