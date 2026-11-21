@@ -60,3 +60,9 @@ const searchFilteredNotes = notes.filter((note) => {
     return words.every((word => titleText.includes(word) || contentText.includes(word));
 });
 
+//category filtering
+const categoryFilteredNotes = searchFilteredNotes.filter((note) => {
+    if(selectedCategory === 'All')
+    return true;
+return note.category.toLowerCase()=== selectedCategory.toLowerCase();
+})
