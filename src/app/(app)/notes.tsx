@@ -127,6 +127,8 @@ return(
                         </Pressable>
                     </View>
                 </View>
+                {/* note title */}
+                {item.title ? <Text style={styles.noteTitle}>{item.title}</Text> : null}
             </View>
         }}
 )
