@@ -98,7 +98,15 @@ return(
                 </Text>
             </Pressable>
         </View>
-    </View>
+
+        {/* Notes List */}
+        <FlatList data={sortedNotes} keyExtractor={(item) => item.id} contentContainerStyle={styles.listContent}
+        ListEmptyComponent={
+            <View styles={styles.emptyContainer}>
+                <Text style={styles.emptyText}>No notes found.</Text>
+            </View>
+        }
+        
 )
 };
 
