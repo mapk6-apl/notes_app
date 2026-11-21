@@ -129,6 +129,21 @@ return(
                 </View>
                 {/* note title */}
                 {item.title ? <Text style={styles.noteTitle}>{item.title}</Text> : null}
+            
+                {/* note content */}
+                <Text style={styles.noteContent} numberOfLines={3}>{item.content}</Text>
+
+                {/* dates added and edited timestamps */}
+                <View style={styles.cardFooter}>
+                    <Text style={styles.dateText}>
+                        Added: {new Date(item.createdAt).toLocaleDateString()}
+                    </Text>
+                    {item.updatedAt ? (
+                        <Text style={styles.dateText}>
+                            Edited: {new Date(item.updatedAt).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}
+                        </Text>
+                    ) : null}
+                </View>
             </View>
         }}
 )
