@@ -91,8 +91,12 @@ return(
                     </Pressable>
                 ))}
             </View>
-
-            
+            {/* sort button toggle */}
+            <Pressable style={styles.sortButton} onPress={() => setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')}>
+                <Text style={styles.sortButtonText}>
+                    Date: {sortOrder === 'desc' ? 'Newest' : 'Oldest'}
+                </Text>
+            </Pressable>
         </View>
     </View>
 )
