@@ -46,4 +46,17 @@ export default function NotesScreen(){
             ]
         )
     }
-}
+};
+
+//search matching: matches keywprds against title and content
+const searchFilteredNotes = notes.filter((note) => {
+    if(!searchQuery.trim())
+        return true;
+    const words = searchQuery.toLowerCase().trim().split(/\s+/);
+    const titleText = note.title.toLowerCase();
+    const contentText = note.content.toLowerCase()
+
+    //ensures every search word appears in either title or content
+    return words.every((word => titleText.includes(word) || contentText.includes(word));
+});
+
