@@ -174,6 +174,21 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderRadius: 10,
         fontSize: 15
-    }
+    },
+    controlsRow: { 
+        marginBottom: 14},
+         categoryContainer: {
+             flexDirection: 'row', 
+             marginBottom: 8
+             }, 
+             categoryChip: { 
+                paddingHorizontal: 12, 
+                paddingVertical: 6, 
+                borderRadius: 16, 
+                backgroundColor: '#FFFFFF', 
+                borderWidth: 1, 
+                borderColor: '#E8E2DC',
+                 marginRight: 8
+                }
 })
 
