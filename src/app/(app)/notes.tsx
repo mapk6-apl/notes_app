@@ -251,15 +251,15 @@ const styles = StyleSheet.create({
     actionRow: {
         flexDirection: 'row'
     },
-    actionBtn: {
+    actionButton: {
         marginLeft: 12
     },
-    editBtnText: {
+    editButtonText: {
         fontSize: 13,
         color: '#8b5e5e',
         fontWeight: '600'
     },
-    deleteBtnText: {
+    deleteButtonText: {
         fontSize: 13,
         color: '#B9382C',
         fontWeight: '600'
@@ -269,5 +269,44 @@ const styles = StyleSheet.create({
         color: '#2D2727',
         marginBottom: 4
     },
+    noteContent: {
+        fontSize: 14,
+        color: '#7A6F6F',
+        lineHeight: 20,
+        marginBottom: 10
+    },
+    cardFooter: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderTopWidth: 1,
+        borderTopColor: '#F0ECE8',
+        paddingTop: 8
+    },
+    dateText: {
+        fontSize: 11,
+        color: '#7A6F6F'
+    }, emptyContainer: {
+        padding: 40,
+        alignItems: 'center'
+    },
+    emptyText: {
+        fontSize: 15,
+        color: '#7a6f6f'
+    },
+    fab: {
+        position: 'absolute',
+        right: 20,
+        bottom: 24,
+        width: 54,
+        height: 54,
+        borderRadius: 27,
+        backgroundColor: '#8B5E5E',
+        justifyContent: 'center', alignItems: 'center', shadowColor: '#8B5E5E', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 6, elevation: 5,
+    }, fabIcon: { 
+        fontSize: 28, 
+        color: '#FAF7F4', 
+        fontWeight: 'bold',
+         marginTop: -2
+        }
 })
 
