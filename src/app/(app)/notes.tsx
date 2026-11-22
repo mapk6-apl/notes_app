@@ -145,7 +145,15 @@ return(
                     ) : null}
                 </View>
             </View>
-        }}
+        }} /> 
+
+        {/* floating action button (FAB) to add a note */}
+        <Link href="/(app)/add-note" asChild>
+            <Pressable style={styles.fab}>
+                <Text style={styles.fabIcon}>+</Text>
+            </Pressable>
+        </Link>
+        </View>
 )
 };
 
