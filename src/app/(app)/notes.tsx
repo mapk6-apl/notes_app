@@ -193,47 +193,81 @@ const styles = StyleSheet.create({
         borderColor: '#E8E2DC',
         marginRight: 8
     },
-    categoryChipActive: { 
+    categoryChipActive: {
         backgroundColor: '#8B5E5E',
-         borderColor: '#8B5E5E'
-        }, 
-        categoryText: { 
-            fontSize: 13, 
-            color: '#2D2727', 
-            fontWeight: '500'
-         },
-          categoryTextActive: { 
-            color: '#FAF7F4', 
-            fontWeight: 'bold'
-         }, 
-         sortButton: { 
-            alignSelf: 'flex-start', 
-            paddingVertical: 4, 
-            paddingHorizontal: 8
-         }, 
-         sortButtonText: { 
-            fontSize: 12, 
-            color: '#8B5E5E', 
-            fontWeight: '600'
-        }, listContent: { 
-            paddingBottom: 80
-        }, noteCard: { 
-            backgroundColor: '#ffffff', 
-            borderRadius: 12, 
-            padding: 16, 
-            marginBottom: 12, 
-            borderWidth: 1,
-             borderColor: '#E8E2DC',
-              shadowColor: '#2D2727', 
-              shadowOffset: { width: 0, height: 2 }, 
-              shadowOpacity: 0.04, 
-              shadowRadius: 4, 
-              elevation: 2
-            },
-             cardHeader: { 
-                flexDirection: 'row', 
-                justifyContent: 'space-between',
-                 alignItems: 'center', 
-                 marginBottom: 8 },
+        borderColor: '#8B5E5E'
+    },
+    categoryText: {
+        fontSize: 13,
+        color: '#2D2727',
+        fontWeight: '500'
+    },
+    categoryTextActive: {
+        color: '#FAF7F4',
+        fontWeight: 'bold'
+    },
+    sortButton: {
+        alignSelf: 'flex-start',
+        paddingVertical: 4,
+        paddingHorizontal: 8
+    },
+    sortButtonText: {
+        fontSize: 12,
+        color: '#8B5E5E',
+        fontWeight: '600'
+    }, listContent: {
+        paddingBottom: 80
+    }, noteCard: {
+        backgroundColor: '#ffffff',
+        borderRadius: 12,
+        padding: 16,
+        marginBottom: 12,
+        borderWidth: 1,
+        borderColor: '#E8E2DC',
+        shadowColor: '#2D2727',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.04,
+        shadowRadius: 4,
+        elevation: 2
+    },
+    cardHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 8
+    },
+    badge: {
+        backgroundColor: '#faf7f4',
+        paddingHorizontal: 8,
+        paddingVertical: 4,
+        borderRadius: 6,
+        borderWidth: 1,
+        borderColor: '#c8bcb4'
+    }, badgeText: {
+        fontSize: 11,
+        fontWeight: '600',
+        color: '#8B5E5E'
+    },
+    actionRow: {
+        flexDirection: 'row'
+    },
+    actionBtn: {
+        marginLeft: 12
+    },
+    editBtnText: {
+        fontSize: 13,
+        color: '#8b5e5e',
+        fontWeight: '600'
+    },
+    deleteBtnText: {
+        fontSize: 13,
+        color: '#B9382C',
+        fontWeight: '600'
+    }, noteTitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#2D2727',
+        marginBottom: 4
+    },
 })
 
