@@ -62,3 +62,25 @@ const loadNoteData = async (noteId: string) => {
         <Text style={styles.headerTitle}>Edit Note</Text>
         <View style={{ width: 24 }} />
       </View>
+
+      {/* Category Picker */}
+      <Text style={styles.label}>Category</Text>
+      <View style={styles.categoryRow}>
+        {CATEGORIES.map((cat) => (
+          <Pressable
+            key={category}
+            onPress={() => setCategory(cat)}
+            style={[
+              styles.categoryChip,
+              category === cat && styles.categoryChipActive,
+            ]}
+          >
+            <Text
+              style={[
+                styles.categoryText,
+                category === cat && styles.categoryTextActive,
+              ]}
+            >
+              {category}
+            </Text>
+          </Pressable>
