@@ -12,3 +12,22 @@ export default function EditNoteScreen() {
     const [title, setTitle] = useState(''); 
     const [content, setContent] = useState(''); 
     const [category, setCategory] = useState('Personal');
+
+useEffect(() => { 
+    if (id) { loadNoteData(id); 
+
+    } 
+}, [id]); 
+
+const loadNoteData = async (noteId: string) => {
+     const notes = await getNotesFromStorage(); 
+     const existingNote = notes.find((n) => n.id === noteId); 
+     
+     if (existingNote) { 
+        setTitle(existingNote.title || '');
+         setContent(existingNote.content || ''); 
+         setCategory(existingNote.category || 'Personal'); 
+        } else { 
+            Alert.alert('Error', 'Note not found.'); 
+            router.back(); } 
+        };
