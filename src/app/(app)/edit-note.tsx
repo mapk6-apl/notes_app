@@ -51,3 +51,14 @@ const loadNoteData = async (noteId: string) => {
                 Alert.alert('Error', 'Failed to update note.'); 
             } 
         };
+
+        return (
+            <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      {/* Top Header */}
+      <View style={styles.header}>
+        <Pressable onPress={() => router.back()} style={styles.backButton}>
+          <Ionicons name="arrow-back" size={24} color="#8B5E5E" />
+        </Pressable>
+        <Text style={styles.headerTitle}>Edit Note</Text>
+        <View style={{ width: 24 }} />
+      </View>
