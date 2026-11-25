@@ -104,7 +104,7 @@ export default function NotesScreen() {
             {/* Notes List */}
             <FlatList data={sortedNotes} keyExtractor={(item) => item.id} contentContainerStyle={styles.listContent}
                 ListEmptyComponent={
-                    <View styles={styles.emptyContainer}>
+                    <View style={styles.emptyContainer}>
                         <Text style={styles.emptyText}>No notes found.</Text>
                     </View>
                 }
@@ -118,7 +118,7 @@ export default function NotesScreen() {
                             <View style={styles.actionRow}>
                                 {/* edit button */}
                                 <Pressable onPress={() => router.push({
-                                    pathname: '/(app)/edit-note',
+                                    pathname: '/edit-note',
                                     params: { id: item.id }
                                 })} style={styles.actionButton}>
                                     <Text style={styles.editButtonText}>Edit</Text>
