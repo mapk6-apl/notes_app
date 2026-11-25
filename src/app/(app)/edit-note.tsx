@@ -31,3 +31,23 @@ const loadNoteData = async (noteId: string) => {
             Alert.alert('Error', 'Note not found.'); 
             router.back(); } 
         };
+
+        const handleUpdate = async () => { 
+            if (!content.trim()) { 
+                Alert.alert('Missing Content', 'Please enter some text content for your note.'); 
+                return; 
+            } 
+            
+            if (!id) return; 
+            
+            const success = await updateNoteInStorage(id, { 
+                title: title.trim(), 
+                content: content.trim(), 
+                category
+            }); 
+            
+            if (success) { router.back(); // Return to Notes list screen 
+            } else { 
+                Alert.alert('Error', 'Failed to update note.'); 
+            } 
+        };
