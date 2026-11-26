@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet, Alert, ScrollView} from 'react-native'; 
 import { useRouter } from 'expo-router'; 
 import { Ionicons } from '@expo/vector-icons'; 
-import { getUserFromStorage, updateUserInStorage, logoutUser } from '../../utils/authStorage';
+import { getUserFromStorage, updateUserInStorage, logoutUser } from '../../../utils/authStorage';
 
 export default function ProfileScreen() { 
     const router = useRouter(); 

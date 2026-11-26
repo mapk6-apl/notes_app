@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { View, Text, TextInput, Pressable, FlatList, StyleSheet, Alert } from 'react-native';
 import { useRouter, useFocusEffect, Link } from 'expo-router';
 import { getNotesFromStorage, deleteNoteFromStorage, Note } from '../../../utils/notesStorage';
+import { Ionicons } from '@expo/vector-icons';
 
 //categories supported by my app
 const CATEGORIES = ['All', 'Work', 'Study', 'Personal'];
@@ -111,6 +112,9 @@ export default function NotesScreen() {
                 renderItem={({ item }) => {
                     <View style={styles.noteCard}>
                         {/* header: category badge and actions */}
+                        <Pressable onPress={() => router.push('/profile')}>
+                            <Ionicons name="person-circle-outline" size={28} color="#8B5E5E" />
+                        </Pressable>
                         <View style={styles.cardHeader}>
                             <View style={styles.badge}>
                                 <Text style={styles.badgeText}>{item.category}</Text>
@@ -302,11 +306,11 @@ const styles = StyleSheet.create({
         borderRadius: 27,
         backgroundColor: '#8B5E5E',
         justifyContent: 'center', alignItems: 'center', shadowColor: '#8B5E5E', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 6, elevation: 5,
-    }, fabIcon: { 
-        fontSize: 28, 
-        color: '#FAF7F4', 
+    }, fabIcon: {
+        fontSize: 28,
+        color: '#FAF7F4',
         fontWeight: 'bold',
-         marginTop: -2
-        }
+        marginTop: -2
+    }
 })
 
