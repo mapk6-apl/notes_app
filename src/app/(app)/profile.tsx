@@ -20,4 +20,12 @@ export default function ProfileScreen() {
             setUsername(user.username || ''); 
             setEmail(user.email || ''); 
         } 
-    };
+
+
+    const handleUpdateProfile = async () => { 
+        if (!username.trim() || !email.trim()) { 
+            Alert.alert('Validation Error', 'Username and email cannot be empty.'); 
+            return; 
+        }
+
+            };
