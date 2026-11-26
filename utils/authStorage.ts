@@ -31,3 +31,22 @@ export const getUserFromStorage = async () => {
         return null;
     }
 };
+
+export const updateUserInStorage = async (updatedUser: { 
+    username: string; 
+    email: string; 
+    password?: string; }): Promise<boolean> => {
+        try { 
+            const existingData = await AsyncStorage.getItem(USER_KEY); 
+            if (!existingData) 
+                return false; 
+            
+            const currentUser = JSON.parse(existingData); 
+            const newUserData = { 
+                ...currentUser, 
+                username: updatedUser.username, 
+                email: updatedUser.email, 
+                // Only update password if a new one is provided 
+                password: updatedUser.password ? updatedUser.password : currentUser.password
+             };
+    }
