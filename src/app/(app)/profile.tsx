@@ -14,4 +14,10 @@ export default function ProfileScreen() {
         loadUserData(); 
     }, []);
 
-    
+    const loadUserData = async () => { 
+        const user = await getUserFromStorage(); 
+        if (user) { 
+            setUsername(user.username || ''); 
+            setEmail(user.email || ''); 
+        } 
+    };
