@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Link } from 'expo-router'; //Link allows declarative navigation between file routes in Expo Route
 import {getUserFromStorage} from '../../utils/authStorage'
 import { useRouter } from 'expo-router';
+import { loginUserInStorage } from '../../utils/authStorage';
 
 export default function LoginScreen() {
   //we declare component state to track user inputs
@@ -12,25 +13,17 @@ export default function LoginScreen() {
   const router = useRouter();
 
   //this function is triggered when a user taps 'Sign In'
-  const handleLogin = async() => {
-    alert('Please enter your email and password');
-    return;
-
-    //we retrieve saved user from AsyncStorage
-    const savedUser = await getUserFromStorage();
-
-    if(!savedUser){
-      alert('User account not found! Please sign up first.')
-      return;
-    }
-
-    //here we validate the credentials against the saved data
-    if(savedUser.email === email && savedUser.password === password){
-      console.log('Login successful for:', savedUser.username);
-    }else{
-      alert('Invalid email or password')
-    }
-  };
+ const handleLogin = async () => { 
+  if (!email || !password) { 
+    alert('Please enter your email and password'); 
+    return; }
+  const user = await loginUserInStorage(email, password); 
+  if (user) { 
+    router.replace('/(app)/notes');
+   } else { 
+    alert('Invalid username/email or password'); 
+  }
+ };
 
   return (
     <View style={styles.container}>
