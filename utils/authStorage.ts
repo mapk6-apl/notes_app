@@ -58,3 +58,13 @@ export const updateUserInStorage = async (updatedUser: {
         return false;
     }
 };
+
+//Removes the stored user credentials/session from AsyncStorage on logout
+export const logoutUser = async (): Promise<boolean> => {
+    try { 
+        await AsyncStorage.removeItem(USER_KEY); 
+        return true;
+     } catch (error) { 
+        console.error('Error logging out user:', error); 
+        return false; }
+};
