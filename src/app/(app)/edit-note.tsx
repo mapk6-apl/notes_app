@@ -108,4 +108,12 @@ const loadNoteData = async (noteId: string) => {
         multiline
         textAlignVertical="top"
       />
-      
+
+      {/* Save Changes Button */}
+      <Pressable style={styles.saveButton} onPress={handleUpdate}>
+        <Ionicons name="checkmark-outline" size={22} color="#FAF7F4" style={styles.saveIcon} />
+        <Text style={styles.saveButtonText}>Save Changes</Text>
+      </Pressable>
+    </ScrollView>
+        );
+      }
