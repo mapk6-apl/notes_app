@@ -97,4 +97,20 @@ export default function ProfileScreen() {
         placeholder="Leave blank to keep current password"
         placeholderTextColor="#7A6F6F"
       />
-        )
+
+      {/* Update Button */}
+      <Pressable style={styles.updateButton} onPress={handleUpdateProfile}>
+        <Ionicons name="save-outline" size={20} color="#FAF7F4" style={{ marginRight: 8 }} />
+        <Text style={styles.buttonText}>Update Credentials</Text>
+      </Pressable>
+
+      {/* Logout Button */}
+      <Pressable style={styles.logoutButton} onPress={handleLogout}>
+        <Ionicons name="log-out-outline" size={20} color="#B9382C" style={{ marginRight: 8 }} />
+        <Text style={styles.logoutText}>Log Out</Text>
+      </Pressable>
+      </ScrollView>
+        );
+    }
+
+    
