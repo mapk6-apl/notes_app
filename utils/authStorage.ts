@@ -4,7 +4,7 @@ const USER_KEY = '@user_credentials';
 
 
 // this will save newly registered user credentials
-export const registerUserInStorage = async (userData: {username: string, email: string, password: string}) => {
+export const registerUserInStorage = async (userData: { username: string, email: string, password: string }) => {
     try {
         //we convert the JavaScript user object into a JSON string (AsyncStorage can only store raw string data)
         const jsonValue = JSON.stringify(userData);
@@ -32,21 +32,29 @@ export const getUserFromStorage = async () => {
     }
 };
 
-export const updateUserInStorage = async (updatedUser: { 
-    username: string; 
-    email: string; 
-    password?: string; }): Promise<boolean> => {
-        try { 
-            const existingData = await AsyncStorage.getItem(USER_KEY); 
-            if (!existingData) 
-                return false; 
-            
-            const currentUser = JSON.parse(existingData); 
-            const newUserData = { 
-                ...currentUser, 
-                username: updatedUser.username, 
-                email: updatedUser.email, 
-                // Only update password if a new one is provided 
-                password: updatedUser.password ? updatedUser.password : currentUser.password
-             };
+export const updateUserInStorage = async (updatedUser: {
+    username: string;
+    email: string;
+    password?: string;
+}): Promise<boolean> => {
+    try {
+        const existingData = await AsyncStorage.getItem(USER_KEY);
+        if (!existingData)
+            return false;
+
+        const currentUser = JSON.parse(existingData);
+        const newUserData = {
+            ...currentUser,
+            username: updatedUser.username,
+            email: updatedUser.email,
+            // Only update password if a new one is provided 
+            password: updatedUser.password ? updatedUser.password : currentUser.password
+        };
+
+        await AsyncStorage.setItem(USER_KEY, JSON.stringify(newUserData));
+        return true;
+    } catch (error) {
+        console.error('Error updating user credentials:', error);
+        return false;
     }
+};
