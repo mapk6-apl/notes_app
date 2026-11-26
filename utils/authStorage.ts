@@ -31,3 +31,41 @@ export const getUserFromStorage = async () => {
         return null;
     }
 };
+
+// Updates existing user profile credentials (username, email, optional password)
+export const updateUserInStorage = async (updatedUser: {
+  username: string;
+  email: string;
+  password?: string;
+}): Promise<boolean> => {
+  try {
+    const existingData = await AsyncStorage.getItem(USER_KEY);
+    if (!existingData) return false;
+
+    const currentUser = JSON.parse(existingData);
+
+    const newUserData = {
+      ...currentUser,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      password: updatedUser.password ? updatedUser.password : currentUser.password,
+    };
+
+    await AsyncStorage.setItem(USER_KEY, JSON.stringify(newUserData));
+    return true;
+  } catch (error) {
+    console.error('Error updating user credentials:', error);
+    return false;
+  }
+};
+
+// Removes stored user session on logout
+export const logoutUser = async (): Promise<boolean> => {
+  try {
+    await AsyncStorage.removeItem(USER_KEY);
+    return true;
+  } catch (error) {
+    console.error('Error logging out user:', error);
+    return false;
+  }
+};
