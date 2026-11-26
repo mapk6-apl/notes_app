@@ -56,4 +56,12 @@ export default function ProfileScreen() {
         <Text style={styles.headerTitle}>Profile Settings</Text>
         <View style={{ width: 24 }} />
       </View>
+
+      {/* Profile Avatar Icon */}
+      <View style={styles.avatarContainer}>
+        <View style={styles.avatarCircle}>
+          <Ionicons name="person" size={50} color="#8B5E5E" />
+        </View>
+        <Text style={styles.avatarText}>{username || 'User'}</Text>
+      </View>
         )
