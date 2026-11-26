@@ -144,5 +144,29 @@ const style = StyleSheet.create({
         fontWeight: 'bold', 
         color: '#2D2727'
        },
-       
+       label: { 
+        fontSize: 14,
+         fontWeight: '600',
+          color: '#2D2727', 
+          marginBottom: 8,
+           marginTop: 12
+           }, 
+           categoryRow: { 
+            flexDirection: 'row', 
+            marginBottom: 12
+           }, 
+           categoryChip: { 
+            paddingHorizontal: 16,
+             paddingVertical: 8, 
+             borderRadius: 20, 
+             backgroundColor: '#FFFFFF', 
+             borderWidth: 1,
+              borderColor: '#E8E2DC', 
+              marginRight: 10
+            }, 
+            categoryChipActive: { 
+              backgroundColor: '#8B5E5E',
+              borderColor: '#8B5E5E'
+            },
+
 })
