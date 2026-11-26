@@ -84,3 +84,15 @@ const loadNoteData = async (noteId: string) => {
               {category}
             </Text>
           </Pressable>
+          ))}
+          </View>
+
+          {/* Title Input */}
+          <Text style={styles.label}>Title (Optional)</Text>
+      <TextInput
+        placeholder="Enter title..."
+        placeholderTextColor="#7A6F6F"
+        value={title}
+        onChangeText={setTitle}
+        style={styles.input}
+      />
