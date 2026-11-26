@@ -121,52 +121,95 @@ export default function EditNoteScreen() {
   );
 }
 
-const style = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: '#FAF7F4', 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FAF7F4',
   },
-  content: { 
-    padding: 20, 
+  content: {
+    padding: 20,
     paddingBottom: 40
-   },header: { 
-    flexDirection: 'row', 
-    alignItems: 'center', 
+  }, header: {
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
-     marginBottom: 20, 
-     marginTop: 10
-     }, 
-     backButton: {
-       padding: 4
-       }, 
-       headerTitle: { 
-        fontSize: 20, 
-        fontWeight: 'bold', 
-        color: '#2D2727'
-       },
-       label: { 
-        fontSize: 14,
-         fontWeight: '600',
-          color: '#2D2727', 
-          marginBottom: 8,
-           marginTop: 12
-           }, 
-           categoryRow: { 
-            flexDirection: 'row', 
-            marginBottom: 12
-           }, 
-           categoryChip: { 
-            paddingHorizontal: 16,
-             paddingVertical: 8, 
-             borderRadius: 20, 
-             backgroundColor: '#FFFFFF', 
-             borderWidth: 1,
-              borderColor: '#E8E2DC', 
-              marginRight: 10
-            }, 
-            categoryChipActive: { 
-              backgroundColor: '#8B5E5E',
-              borderColor: '#8B5E5E'
-            },
-
-})
+    marginBottom: 20,
+    marginTop: 10
+  },
+  backButton: {
+    padding: 4
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#2D2727'
+  },
+  label: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#2D2727',
+    marginBottom: 8,
+    marginTop: 12
+  },
+  categoryRow: {
+    flexDirection: 'row',
+    marginBottom: 12
+  },
+  categoryChip: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E8E2DC',
+    marginRight: 10
+  },
+  categoryChipActive: {
+    backgroundColor: '#8B5E5E',
+    borderColor: '#8B5E5E'
+  },
+  categoryText:
+  {
+    fontSize: 14,
+    color: '#2D2727',
+    fontWeight: '500'
+  },
+  categoryTextActive: {
+    color: '#FAF7F4',
+    fontWeight: 'bold'
+  },
+  input: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1.5,
+    borderColor: '#E8E2DC',
+    borderRadius: 10,
+    padding: 14,
+    fontSize: 15,
+    color: '#2D2727'
+  },
+  textArea: {
+    minHeight: 140
+  },
+  saveButton: {
+    backgroundColor: '#8B5E5E',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 16,
+    borderRadius: 10,
+    marginTop: 24,
+    shadowColor: '#8B5E5E',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    elevation: 3
+  },
+  saveIcon: {
+    marginRight: 8
+  },
+  saveButtonText: {
+    color: '#FAF7F4',
+    fontSize: 16,
+    fontWeight: 'bold'
+  }
+});
