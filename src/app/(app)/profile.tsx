@@ -28,4 +28,20 @@ export default function ProfileScreen() {
             return; 
         }
 
-            };
+        const success = await updateUserInStorage({ 
+            username: username.trim(), 
+            email: email.trim(), 
+            password: password.trim() ? password.trim() : undefined, }); 
+            
+            if (success) { 
+                setPassword(''); 
+                Alert.alert('Success', 'Your profile credentials have been updated!'); 
+            } else { 
+                Alert.alert('Error', 'Failed to update credentials.'); 
+            } 
+        };
+
+        const handleLogout = async () => { 
+            await logoutUser(); 
+            router.replace('/'); 
+        };
