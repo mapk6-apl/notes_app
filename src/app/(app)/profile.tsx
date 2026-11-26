@@ -113,4 +113,93 @@ export default function ProfileScreen() {
         );
     }
 
-    
+   const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FAF7F4'
+  },
+  content: {
+    padding: 20,
+    paddingBottom: 40
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+    marginTop: 10
+  },
+  backButton: {
+    padding: 4
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#2D2727'
+  },
+  avatarContainer: {
+    alignItems: 'center',
+    marginVertical: 16
+  },
+  avatarCircle: {
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    backgroundColor: '#E8E2DC',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10
+  },
+  avatarText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#2D2727'
+  },
+  label: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#2D2727',
+    marginBottom: 8,
+    marginTop: 12
+  },
+  input: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1.5,
+    borderColor: '#E8E2DC',
+    borderRadius: 10,
+    padding: 14,
+    fontSize: 15,
+    color: '#2D2727'
+  },
+  updateButton: {
+    backgroundColor: '#8B5E5E',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 16,
+    borderRadius: 10,
+    marginTop: 24
+  },
+  buttonText: {
+    color: '#FAF7F4',
+    fontSize: 16,
+    fontWeight: 'bold'
+  },
+  logoutButton: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1.5,
+    borderColor: '#B9382C',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 16,
+    borderRadius: 10,
+    marginTop: 16
+  },
+  logoutText: {
+    color: '#B9382C',
+    fontSize: 16,
+    fontWeight: 'bold'
+  }
+});
+}
