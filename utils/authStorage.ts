@@ -69,3 +69,24 @@ export const logoutUser = async (): Promise<boolean> => {
     return false;
   }
 };
+
+export const loginUserInStorage = async (
+  identifier: string,
+  passwordInput: string
+) => {
+  try {
+    const jsonValue = await AsyncStorage.getItem(USER_KEY);
+    if (!jsonValue) return null;
+
+    const savedUser = JSON.parse(jsonValue);
+
+    const matches =
+      (savedUser.email.toLowerCase() === identifier.trim().toLowerCase() ||
+        savedUser.username.toLowerCase() === identifier.trim().toLowerCase()) &&
+      savedUser.password === passwordInput;
+
+    return matches ? savedUser : null;
+  } catch (error) {
+    return null;
+  }
+};

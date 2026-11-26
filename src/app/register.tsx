@@ -24,7 +24,7 @@ export default function RegisterScreen() {
 
         if(success){
             alert('Account created successfully!')
-            router.replace('/notes')
+            router.replace('/(app)/notes')
         }else{
             alert('Failed to register user. Please try again.')
         }
