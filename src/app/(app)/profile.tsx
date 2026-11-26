@@ -86,4 +86,15 @@ export default function ProfileScreen() {
         placeholder="Update email..."
         placeholderTextColor="#7A6F6F"
       />
+
+      {/* New Password */}
+      <Text style={styles.label}>New Password (Optional)</Text>
+      <TextInput
+        value={password}
+        onChangeText={setPassword}
+        style={styles.input}
+        secureTextEntry
+        placeholder="Leave blank to keep current password"
+        placeholderTextColor="#7A6F6F"
+      />
         )
