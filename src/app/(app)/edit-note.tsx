@@ -1,59 +1,62 @@
-import React, { useState, useEffect } from 'react'; 
-import { View, Text, TextInput, Pressable, StyleSheet, Alert, ScrollView, } from 'react-native'; 
-import { useRouter, useLocalSearchParams } from 'expo-router'; 
-import { Ionicons } from '@expo/vector-icons'; 
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, Pressable, StyleSheet, Alert, ScrollView, } from 'react-native';
+import { useRouter, useLocalSearchParams } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { getNotesFromStorage, updateNoteInStorage } from '../../../utils/notesStorage';
 
-const CATEGORIES = ['Work', 'Study', 'Personal']; 
+const CATEGORIES = ['Work', 'Study', 'Personal'];
 
-export default function EditNoteScreen() { 
-    const router = useRouter(); 
-    const { id } = useLocalSearchParams<{ id: string }>(); 
-    const [title, setTitle] = useState(''); 
-    const [content, setContent] = useState(''); 
-    const [category, setCategory] = useState('Personal');
+export default function EditNoteScreen() {
+  const router = useRouter();
+  const { id } = useLocalSearchParams<{ id: string }>();
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [category, setCategory] = useState('Personal');
 
-useEffect(() => { 
-    if (id) { loadNoteData(id); 
+  useEffect(() => {
+    if (id) {
+      loadNoteData(id);
 
-    } 
-}, [id]); 
+    }
+  }, [id]);
 
-const loadNoteData = async (noteId: string) => {
-     const notes = await getNotesFromStorage(); 
-     const existingNote = notes.find((n) => n.id === noteId); 
-     
-     if (existingNote) { 
-        setTitle(existingNote.title || '');
-         setContent(existingNote.content || ''); 
-         setCategory(existingNote.category || 'Personal'); 
-        } else { 
-            Alert.alert('Error', 'Note not found.'); 
-            router.back(); } 
-        };
+  const loadNoteData = async (noteId: string) => {
+    const notes = await getNotesFromStorage();
+    const existingNote = notes.find((n) => n.id === noteId);
 
-        const handleUpdate = async () => { 
-            if (!content.trim()) { 
-                Alert.alert('Missing Content', 'Please enter some text content for your note.'); 
-                return; 
-            } 
-            
-            if (!id) return; 
-            
-            const success = await updateNoteInStorage(id, { 
-                title: title.trim(), 
-                content: content.trim(), 
-                category
-            }); 
-            
-            if (success) { router.back(); // Return to Notes list screen 
-            } else { 
-                Alert.alert('Error', 'Failed to update note.'); 
-            } 
-        };
+    if (existingNote) {
+      setTitle(existingNote.title || '');
+      setContent(existingNote.content || '');
+      setCategory(existingNote.category || 'Personal');
+    } else {
+      Alert.alert('Error', 'Note not found.');
+      router.back();
+    }
+  };
 
-        return (
-            <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+  const handleUpdate = async () => {
+    if (!content.trim()) {
+      Alert.alert('Missing Content', 'Please enter some text content for your note.');
+      return;
+    }
+
+    if (!id) return;
+
+    const success = await updateNoteInStorage(id, {
+      title: title.trim(),
+      content: content.trim(),
+      category
+    });
+
+    if (success) {
+      router.back(); // Return to Notes list screen 
+    } else {
+      Alert.alert('Error', 'Failed to update note.');
+    }
+  };
+
+  return (
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       {/* Top Header */}
       <View style={styles.header}>
         <Pressable onPress={() => router.back()} style={styles.backButton}>
@@ -84,11 +87,11 @@ const loadNoteData = async (noteId: string) => {
               {category}
             </Text>
           </Pressable>
-          ))}
-          </View>
+        ))}
+      </View>
 
-          {/* Title Input */}
-          <Text style={styles.label}>Title (Optional)</Text>
+      {/* Title Input */}
+      <Text style={styles.label}>Title (Optional)</Text>
       <TextInput
         placeholder="Enter title..."
         placeholderTextColor="#7A6F6F"
@@ -115,5 +118,31 @@ const loadNoteData = async (noteId: string) => {
         <Text style={styles.saveButtonText}>Save Changes</Text>
       </Pressable>
     </ScrollView>
-        );
-      }
+  );
+}
+
+const style = StyleSheet.create({
+  container: { 
+    flex: 1, 
+    backgroundColor: '#FAF7F4', 
+  },
+  content: { 
+    padding: 20, 
+    paddingBottom: 40
+   },header: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'space-between',
+     marginBottom: 20, 
+     marginTop: 10
+     }, 
+     backButton: {
+       padding: 4
+       }, 
+       headerTitle: { 
+        fontSize: 20, 
+        fontWeight: 'bold', 
+        color: '#2D2727'
+       },
+       
+})
