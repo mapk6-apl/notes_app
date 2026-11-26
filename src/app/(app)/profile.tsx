@@ -64,4 +64,14 @@ export default function ProfileScreen() {
         </View>
         <Text style={styles.avatarText}>{username || 'User'}</Text>
       </View>
+
+      {/* Username */}
+      <Text style={styles.label}>Username</Text>
+      <TextInput
+        value={username}
+        onChangeText={setUsername}
+        style={styles.input}
+        placeholder="Update username..."
+        placeholderTextColor="#7A6F6F"
+      />
         )
