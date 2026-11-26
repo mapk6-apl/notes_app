@@ -96,3 +96,16 @@ const loadNoteData = async (noteId: string) => {
         onChangeText={setTitle}
         style={styles.input}
       />
+
+      {/* Content Input */}
+      <Text style={styles.label}>Content</Text>
+      <TextInput
+        placeholder="Write your note content here..."
+        placeholderTextColor="#7A6F6F"
+        value={content}
+        onChangeText={setContent}
+        style={[styles.input, styles.textArea]}
+        multiline
+        textAlignVertical="top"
+      />
+      
