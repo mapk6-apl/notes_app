@@ -74,4 +74,16 @@ export default function ProfileScreen() {
         placeholder="Update username..."
         placeholderTextColor="#7A6F6F"
       />
+
+      {/* Email */}
+      <Text style={styles.label}>Email Address</Text>
+      <TextInput
+        value={email}
+        onChangeText={setEmail}
+        style={styles.input}
+        keyboardType="email-address"
+        autoCapitalize="none"
+        placeholder="Update email..."
+        placeholderTextColor="#7A6F6F"
+      />
         )
